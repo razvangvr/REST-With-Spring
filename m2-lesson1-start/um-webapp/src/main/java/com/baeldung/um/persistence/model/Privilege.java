@@ -26,7 +26,7 @@ public class Privilege implements INameableEntity, INameableDto {
 
     @Column(unique = true, nullable = false)
     @Size(min = 2, max = 30)
-    @NotNull
+    @NotNull//Make sure that the name is not null when is coming from the client
     private String name;
 
     @Column(unique = false, nullable = false)

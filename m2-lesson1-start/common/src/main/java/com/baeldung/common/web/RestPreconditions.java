@@ -134,4 +134,10 @@ public final class RestPreconditions {
         }
     }
 
+    public static void checkIfBadRequest(final boolean expression, String msg) {
+        if (!expression) {
+            throw new MyBadRequestException(msg);
+        }
+    }
+
 }

@@ -22,7 +22,7 @@ public abstract class AbstractController<T extends INameableEntity> extends Abst
     protected final void updateInternal(final long id, final T resource) {
         RestPreconditions.checkRequestElementNotNull(resource);
         RestPreconditions.checkRequestElementNotNull(resource.getId());
-        RestPreconditions.checkIfBadRequest(resource.getId() == id);
+        RestPreconditions.checkIfBadRequest(resource.getId() == id, "Resource ID doesn't match. ["+resource.getId()+"] vs ["+id+"]" );
         RestPreconditions.checkNotNull(getService().findOne(resource.getId()));
 
         getService().update(resource);
