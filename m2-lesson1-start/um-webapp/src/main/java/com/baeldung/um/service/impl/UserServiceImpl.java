@@ -31,6 +31,11 @@ public class UserServiceImpl extends AbstractService<User> implements IUserServi
         return dao.findOneByName(name);
     }
 
+    @Override
+    public User findByName(String name) {
+        return null;
+    }
+
     // other
 
     // Spring

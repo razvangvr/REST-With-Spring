@@ -30,6 +30,11 @@ public class RoleServiceImpl extends AbstractService<Role> implements IRoleServi
         return getDao().findOneByName(name);
     }
 
+    @Override
+    public Role findByName(String name) {
+        return null;
+    }
+
     // create
 
     @Override

@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
@@ -13,12 +15,16 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 import com.baeldung.um.persistence.setup.MyApplicationContextInitializer;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = { // @formatter:off
+        SecurityAutoConfiguration.class
+        , ErrorMvcAutoConfiguration.class
+})
 @Import({ // @formatter:off
     UmContextConfig.class,
     UmPersistenceJpaConfig.class,
     UmServiceConfig.class,
-    UmWebConfig.class
+    UmWebConfig.class,
+    UmJavaSecurityConfig.class
 }) // @formatter:on
 public class UmApp extends SpringBootServletInitializer {
 
